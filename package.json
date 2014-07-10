@@ -1,6 +1,6 @@
 {
   "name": "por",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A streaming parser for the SPSS / PSPP Portable File Format (.por).",
   "keywords": [
     "spss",
