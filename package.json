@@ -1,0 +1,31 @@
+{
+  "name": "por",
+  "version": "0.0.1",
+  "description": "A streaming parser for the SPSS / PSPP Portable File Format (.por).",
+  "keywords": [
+    "spss",
+    "pspp",
+    "por"
+  ],
+  "author": {
+    "name": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mbostock/por.git"
+  },
+  "licenses": [
+    {
+      "type": "BSD",
+      "url": "https://github.com/mbostock/por/blob/master/LICENSE"
+    }
+  ],
+  "main": "index.js",
+  "dependencies": {
+    "rw": "0.1"
+  },
+  "bin": {
+    "por2tsv": "./bin/por2tsv"
+  }
+}

@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+var os = require("os"),
+    rw = require("rw"),
+    por = require("../");
+
+var reader = rw.fileReader(process.argv[2] || "/dev/stdin"),
+    writer = rw.fileWriter("/dev/stdout"),
+    parser = por.parser();
+
+reader.fill(function pipe(error) {
+  if (error) throw error;
+  var data = reader.read(),
+      row;
+
+  if (data) parser.push(data);
+
+  while ((row = parser.pop()) != null) {
+    if (!writer.write(row.join("\t") + os.EOL)) {
+      return writer.drain(pipe);
+    }
+  }
+
+  if (reader.ended) return writer.end();
+
+  reader.fill(pipe);
+});
